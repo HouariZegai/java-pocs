@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <bean id="parenttriangle" class="inheritance.Triangle" abstract="true">
+        <property name="points">
+            <list>
+                <ref bean="p" />
+            </list>
+        </property>
+    </bean>
+
+    <bean id="triangle" class="inheritance.Triangle" parent="parenttriangle">
+        <property name="points">
+            <list merge="true">
+                <ref bean="p2" />
+            </list>
+        </property>
+    </bean>
+
+    <bean id="p" class="inheritance.Point">
+        <property name="x" value="0" />
+        <property name="y" value="-20" />
+    </bean>
+    <bean id="p2" class="inheritance.Point">
+        <property name="x" value="5" />
+        <property name="y" value="6" />
+    </bean>
+    <bean id="p3" class="inheritance.Point">
+        <property name="x" value="10" />
+        <property name="y" value="22" />
+    </bean>
+</beans>
