@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <bean id="triangle" class="autowiring.Triangle" autowire="byName" scope="prototype">
+    </bean>
+
+    <bean id="pointA" class="autowiring.Point">
+        <property name="x" value="0" />
+        <property name="y" value="-20" />
+    </bean>
+
+    <bean id="pointB" class="autowiring.Point">
+        <property name="x" value="5" />
+        <property name="y" value="6" />
+    </bean>
+    <bean id="p3" class="autowiring.Point">
+        <property name="x" value="10" />
+        <property name="y" value="22" />
+    </bean>
+</beans>
