@@ -6,14 +6,15 @@ import org.springframework.stereotype.Component;
 //@Component("thatSillyCoach") // specify the id of bean
 @Component // default bean id: take the name of class, make the first character lower case.
 public class TennisCoach implements Coach {
-
+	// field injection using java technology called Reflection
+	@Autowired
 	FortuneService fortuneService;
 	
 	public TennisCoach() {
 		
 	}
 	
-	/*	
+	/*// constructor injection
     @Autowired
 	public TennisCoach(FortuneService fortuneService) {
 		this.fortuneService = fortuneService;
@@ -24,7 +25,7 @@ public class TennisCoach implements Coach {
 		return "Practice your backhand volley";
 	}
 	
-	/*
+	/*// setter injection
 	@Autowired
 	public void setDailyFortune(FortuneService fortuneService) {
 		System.out.println("setDailyFortune() called !");
@@ -32,12 +33,13 @@ public class TennisCoach implements Coach {
 	}
 	*/
 	
+	/*
 	@Autowired
 	public void doSomeCrazyStuff(FortuneService fortuneService) {
 		System.out.println("doSomeCrazyStuff() called !");
 		this.fortuneService = fortuneService;
 	}
-	
+	*/
 	public String getDailyFortune() {
 		return fortuneService.getFortune();
 	}
