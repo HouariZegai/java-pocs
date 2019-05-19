@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd"
+        xmlns:context="http://www.springframework.org/schema/context">
+
+    <bean id="cen" class="msg_source.Point">
+        <property name="x" value="0" />
+        <property name="y" value="-20" />
+    </bean>
+
+    <bean id="circle" class="msg_source.Circle">
+        <property name="center" ref="cen" />
+    </bean>
+
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>msg_source.mymessages</value>
+            </list>
+        </property>
+    </bean>
+
+    <context:annotation-config />
+</beans>

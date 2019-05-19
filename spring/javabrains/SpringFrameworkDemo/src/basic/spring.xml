@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <bean id="circle" class="basic.Circle">
+        <property name="id" value="10" />
+        <property name="name" value="Cir" />
+        <constructor-arg index="0" value="120" />
+        <constructor-arg index="1" value="40" />
+    </bean>
+</beans>
