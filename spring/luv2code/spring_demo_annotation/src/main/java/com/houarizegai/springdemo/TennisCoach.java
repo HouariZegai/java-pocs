@@ -1,6 +1,7 @@
 package com.houarizegai.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 //@Component("thatSillyCoach") // specify the id of bean
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Component;
 public class TennisCoach implements Coach {
 	// field injection using java technology called Reflection
 	@Autowired
+	@Qualifier("fortuneServiceHappy") // specify the injection class (if there is multiple class inherit FortuneService interface) 
 	FortuneService fortuneService;
 	
 	public TennisCoach() {
