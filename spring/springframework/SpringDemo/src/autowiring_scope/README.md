@@ -7,3 +7,5 @@ allow spring to check a bean of each attribute of triangle class
 ## Scope
 * Singleton (default behaviour): all bean have initialized (all obj have the same reference) Only once per spring container.
 * Prototype: new bean created with every request or reference.
+* and other
+![image of bean scopes](additional_spring_bean_scopes.PNG)
