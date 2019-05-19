@@ -1,11 +1,11 @@
-package autowiring;
+package autowiring_scope;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class DrawApp {
     public static void main(String[] args) {
-        BeanFactory factory = new ClassPathXmlApplicationContext("autowiring/spring.xml");
+        BeanFactory factory = new ClassPathXmlApplicationContext("autowiring_scope/spring.xml");
 
         Triangle triangle = (Triangle) factory.getBean("triangle");
         Triangle t2 = (Triangle) factory.getBean("triangle");

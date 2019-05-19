@@ -1,4 +1,4 @@
-package autowiring;
+package autowiring_scope;
 
 public class Triangle {
 
