@@ -8,7 +8,11 @@
 	Hello world of helloworld jsp file!
 	<br><br>
 	
-	Student name: ${param.studentName }
+	Student name: ${param.studentName}
+	
+	<br><br>
+	
+	The message: ${message}	
 	
 </body>
 </html>
