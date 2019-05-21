@@ -12,8 +12,8 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 	<!-- Step 3: Add support for component scanning -->
-	<context:component-scan base-package="com.luv2code.springdemo" />
-
+	<context:component-scan base-package="com.houarizegai.springdemo" />
+	
 	<!-- Step 4: Add support for conversion, formatting and validation support -->
 	<mvc:annotation-driven/>
 
@@ -25,8 +25,3 @@
 	</bean>
 
 </beans>
-
-
-
-
-

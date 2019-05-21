@@ -4,16 +4,16 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.houarizegai</groupId>
-	<artifactId>spring_demo_one</artifactId>
+	<artifactId>spring_annotation_demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>spring_demo_one</name>
+	<name>spring_annotation_demo</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<spring.version>5.1.7.RELEASE</spring.version>
+		<org.springframework.version>5.1.7.RELEASE</org.springframework.version> <!-- Shared version number properties -->
 	</properties>
 
 	<dependencies>
@@ -23,17 +23,17 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
-
+	
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
-			<version>${spring.version}</version>
+			<version>${org.springframework.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>${spring.version}</version>
+			<version>${org.springframework.version}</version>
 		</dependency>
 	</dependencies>
 </project>
