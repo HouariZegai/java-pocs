@@ -71,6 +71,13 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework.version}</version>
 		</dependency>
+		
+		<!-- Hibernate validator (bean validator) -->
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+		    <version>6.0.16.Final</version>
+		</dependency>
 
 	</dependencies>
 </project>

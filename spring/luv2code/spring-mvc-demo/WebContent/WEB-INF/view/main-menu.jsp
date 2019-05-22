@@ -9,7 +9,9 @@
 	<a href="hello/showForm">Hello World Form</a>	
 	
 	<br><br>
+	<a href="student/showForm">Student registration form</a>
 	
-	<a href="student/showForm">Student registration form</a>	
+	<br><br>
+	<a href="customer/showForm">Customer registration form (use Hibernate validator)</a>	
 </body>
 </html>
