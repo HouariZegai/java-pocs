@@ -11,10 +11,17 @@
 			Last name: <form:input path="lastName"/><br>
 			Country:
 			 <form:select path="country">
-				<form:option value="algeria" label="Algeria" /> <!-- value: code value, label: display value -->
+			 	<!-- in input [value: code value, label: display value] -->
+			 	<!-- Method 1: manual put the options -->
+				<!-- 
+				<form:option value="algeria" label="Algeria" />
 				<form:option value="palestine" label="Palestine" />
 				<form:option value="tunisia" label="Tunisia" />
 				<form:option value="maroc" label="Marocco" />
+				-->
+				
+				<!-- Method 2: get the options from java code -->
+				<form:options items="${student.countryOptions}" />
 			</form:select><br>
 			<input type="submit" />
 		</form:form>
