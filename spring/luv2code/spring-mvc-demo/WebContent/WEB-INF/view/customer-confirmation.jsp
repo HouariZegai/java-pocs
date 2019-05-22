@@ -7,6 +7,12 @@
 </head>
 <body>
 	<h2>Confirm Customer</h2>
-	<p>The customer is confirmed: ${customer.firstName} ${customer.lastName}</p>
+	<p>The customer is confirmed:</p>
+	<ul>
+		<li>First name: ${customer.firstName}</li>
+		<li>Last name: ${customer.lastName}</li>
+		<li>Mark: ${customer.mark}</li>
+		<li>Postal code: ${customer.postalCode}</li>
+	</ul>
 </body>
 </html>
