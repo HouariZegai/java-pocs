@@ -13,6 +13,7 @@
 		<li>Last name: ${customer.lastName}</li>
 		<li>Mark: ${customer.mark}</li>
 		<li>Postal code: ${customer.postalCode}</li>
+		<li>Course code: ${customer.courseCode}</li>
 	</ul>
 </body>
 </html>
