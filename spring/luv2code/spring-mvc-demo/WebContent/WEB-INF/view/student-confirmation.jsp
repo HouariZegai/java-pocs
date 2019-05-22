@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +12,14 @@
 		<li>First name: ${student.firstName}</li>
 		<li>First name: ${student.lastName}</li>
 		<li>Country: ${student.country}</li>
+		<li>Favorite language: ${student.favoriteLanguage}</li>
+		<li>Operating systems:
+			<ul>
+				<c:forEach var="temp" items="${student.operatingSystems}">
+					<li>${temp}</li>
+				</c:forEach>
+			</ul>
+		</li>
 	</ul>
-	<button>Yes</button>
 </body>
 </html>
