@@ -2,6 +2,8 @@ package com.houarizegai.hibernate.demo.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -9,6 +11,7 @@ import javax.persistence.Table;
 @Table(name="student")
 public class Student {
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY) // AUTO_INCREMENT (let MySQL know that is column is auto generated)
 	@Column(name="id")
 	private int id;
 	
