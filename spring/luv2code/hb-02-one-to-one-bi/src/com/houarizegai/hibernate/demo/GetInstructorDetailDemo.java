@@ -1,5 +1,6 @@
 package com.houarizegai.hibernate.demo;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -25,7 +26,7 @@ public class GetInstructorDetailDemo {
 			session.beginTransaction();
 			
 			// get the instructor detail object
-			int instructorDetailId = 2;
+			int instructorDetailId = 12;
 			InstructorDetail instructorDetail = session.get(InstructorDetail.class, instructorDetailId);
 			
 			// print the instructor detail
@@ -38,7 +39,12 @@ public class GetInstructorDetailDemo {
 			session.getTransaction().commit();
 			
 			System.out.println("Done!");
+		} catch(HibernateException he) {
+			he.printStackTrace();
 		} finally {
+			// handle connection leak issue
+			session.close();
+			
 			factory.close();
 		}
 	}
