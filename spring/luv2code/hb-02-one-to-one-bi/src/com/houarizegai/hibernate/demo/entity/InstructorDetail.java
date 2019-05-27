@@ -24,8 +24,9 @@ public class InstructorDetail {
 	@Column(name="hobby")
 	private String hobby;
 	
-	// for get the instructor object from instructorDetail 
-	@OneToOne(mappedBy="instructorDetail", cascade=CascadeType.ALL)
+	// for get the instructor object from instructorDetail
+	// cascade type: i don't use 'ALL' for don't applied cascade delete
+	@OneToOne(mappedBy="instructorDetail", cascade={CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
 	private Instructor instructor;
 	
 	public InstructorDetail() {
