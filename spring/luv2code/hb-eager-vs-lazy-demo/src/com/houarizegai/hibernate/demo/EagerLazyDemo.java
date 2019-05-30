@@ -32,13 +32,20 @@ public class EagerLazyDemo {
 			
 			System.out.println("houari: Instructor: " + instructor);
 			
+			// option 1: call getter method while session is open 
+			// get courses for the instructor
+			System.out.println("houari: Courses: " + instructor.getCourse()); // demand the course before close the session (work fine)
+			
 			// commit transaction
 			session.getTransaction().commit();
 			
 			// close the session
 			session.close();
 			
+			System.out.println("\nHouari: The session in now closed!\n");
+			
 			// since course are lazy loaded ... this should fail
+			// update: because i call the getter method above before close the session, i solve the issue of lazy fetch :D
 			
 			// get courses for the instructor
 			System.out.println("houari: Courses: " + instructor.getCourse());
