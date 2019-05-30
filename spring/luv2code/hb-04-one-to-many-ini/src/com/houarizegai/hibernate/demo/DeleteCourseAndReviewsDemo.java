@@ -7,8 +7,9 @@ import org.hibernate.cfg.Configuration;
 import com.houarizegai.hibernate.demo.entity.Course;
 import com.houarizegai.hibernate.demo.entity.Instructor;
 import com.houarizegai.hibernate.demo.entity.InstructorDetail;
+import com.houarizegai.hibernate.demo.entity.Review;
 
-public class DeleteCoursesDemo {
+public class DeleteCourseAndReviewsDemo {
 
 	public static void main(String[] args) {
 		// create session factory
@@ -17,6 +18,7 @@ public class DeleteCoursesDemo {
 				.addAnnotatedClass(Instructor.class)
 				.addAnnotatedClass(InstructorDetail.class)
 				.addAnnotatedClass(Course.class)
+				.addAnnotatedClass(Review.class)
 				.buildSessionFactory();
 		
 		// create session
@@ -25,14 +27,16 @@ public class DeleteCoursesDemo {
 		try {
 			// start a transaction
 			session.beginTransaction();
-
-			// get the course from the db
+			
+			// get the course
 			int idCourse = 10;
 			Course course = session.get(Course.class, idCourse);
-			System.out.println("Deleting course: " + course);
 			
-			// delete the course 
-			session.delete(course);
+			// print the course
+			System.out.println("Course: " + course);
+			
+			// print the course reviews
+			System.out.println("Reviews: " + course.getReviews());
 			
 			// commit transaction
 			session.getTransaction().commit();

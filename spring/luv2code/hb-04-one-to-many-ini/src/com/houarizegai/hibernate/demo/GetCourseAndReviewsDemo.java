@@ -32,11 +32,11 @@ public class GetCourseAndReviewsDemo {
 			int idCourse = 10;
 			Course course = session.get(Course.class, idCourse);
 			
-			// print the course
-			System.out.println("Course: " + course);
+			System.out.println("Deleting the course: " + course);
 			
-			// print the course reviews
-			System.out.println("Reviews: " + course.getReviews());
+			// delete the course
+			session.delete(course);
+			// PS: automatic delete all reviews related with this course (because we make cascade type: ALL)
 			
 			// commit transaction
 			session.getTransaction().commit();
