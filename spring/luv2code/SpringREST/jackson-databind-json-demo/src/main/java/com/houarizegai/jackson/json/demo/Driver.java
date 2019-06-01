@@ -17,15 +17,18 @@ public class Driver {
 
             // print the information
             System.out.println("Student information:");
-            System.out.println("First name: " + student.getFirstName());
-            System.out.println("Last name: " + student.getLastName());
-            System.out.println("active: " + student.getActive());
+            System.out.println("\tFirst name: " + student.getFirstName());
+            System.out.println("\tLast name: " + student.getLastName());
+            System.out.println("\tActive: " + student.getActive());
 
+            System.out.println("Address: ");
             Address address = student.getAddress();
-            System.out.println("Country: " + address.getCountry());
-            System.out.println("city: " + address.getCity());
+            System.out.println("\tCountry: " + address.getCountry());
+            System.out.println("\tCity: " + address.getCity());
 
-            System.out.println("Language[0]: " + student.getLanguages()[0]);
+            System.out.print("Languages: \n\t");
+            for(String lang : student.getLanguages())
+                System.out.print(lang + ", ");
 
         } catch(IOException e) {
             e.printStackTrace();
