@@ -1,5 +1,10 @@
 package com.houarizegai.jackson.json.demo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+// ignore every json property not mentioned in this class (field).
+// like say: if there is new property added in json file we need to be aware of it, and not give me an exception.
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Student {
 
     private int id;
