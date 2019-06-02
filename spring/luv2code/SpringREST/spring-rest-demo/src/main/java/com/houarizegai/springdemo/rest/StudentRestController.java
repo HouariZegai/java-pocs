@@ -43,6 +43,10 @@ public class StudentRestController {
         return students.get(studentId);
     }
 
+    // for catch an exception this is 2 option:
+    // option 1: make this exception handler in this controller class
+    // option 2: make global exception handler (ControllerAdvice)
+    /*
     @ExceptionHandler
     public ResponseEntity<StudentErrorResponse> handleException(StudentNotFoundException se) {
         // create StudentErrorResponse
@@ -63,5 +67,5 @@ public class StudentRestController {
 
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
-
+    */
 }
