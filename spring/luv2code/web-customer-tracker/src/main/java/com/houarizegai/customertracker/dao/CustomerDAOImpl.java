@@ -21,10 +21,10 @@ public class CustomerDAOImpl implements CustomerDAO {
     @Transactional
     public List<Customer> getCustomers() {
         // get the currsnt hibernate session
-        Session session = sessionFactory.getCurrentSession();
+        Session currentSession = sessionFactory.getCurrentSession();
 
         // create a query
-        Query<Customer> query = session.createQuery("from customer", Customer.class);
+        Query<Customer> query = currentSession.createQuery("from Customer", Customer.class);
 
         // execute query and get result list
         List<Customer> customers = query.getResultList();
