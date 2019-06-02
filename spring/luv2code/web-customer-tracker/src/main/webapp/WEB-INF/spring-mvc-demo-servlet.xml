@@ -29,7 +29,7 @@
 	
 	<!-- Step 1: Define database DataSource / connection pool -->
 	<bean id="myDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
-		<property name="driverClass" value="com.mysql.jdbc.driver" />
+		<property name="driverClass" value="com.mysql.jdbc.Driver" />
 		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/web_customer_tracker" />
 		<property name="user" value="springstudent" />
 		<property name="password" value="springstudent" />
@@ -43,7 +43,7 @@
 	<!-- Step 2: Setup hibernate session factory -->
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 		<property name="dataSource" ref="myDataSource" />
-		<property name="packagesToScan" ref="com.houarizegai.customertracker.entity" />
+		<property name="packagesToScan" value="com.houarizegai.customertracker.entity" />
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>

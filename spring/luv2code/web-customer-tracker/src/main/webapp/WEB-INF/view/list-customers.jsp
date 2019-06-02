@@ -6,6 +6,5 @@
 </head>
 <body>
 	<h1>List Customers - Coming soon...</h1>
-	
 </body>
 </html>
