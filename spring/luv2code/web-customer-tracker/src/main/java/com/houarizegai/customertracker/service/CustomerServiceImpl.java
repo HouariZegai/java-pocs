@@ -1,7 +1,6 @@
 package com.houarizegai.customertracker.service;
 
 import com.houarizegai.customertracker.dao.CustomerDAO;
-import com.houarizegai.customertracker.dao.CustomerDAOImpl;
 import com.houarizegai.customertracker.entity.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,5 +19,11 @@ public class CustomerServiceImpl implements CustomerService {
     @Transactional
     public List<Customer> getCustomers() {
         return customerDAO.getCustomers();
+    }
+
+    @Override
+    @Transactional
+    public void saveCustomer(Customer customer) {
+        customerDAO.saveCustomer(customer);
     }
 }
