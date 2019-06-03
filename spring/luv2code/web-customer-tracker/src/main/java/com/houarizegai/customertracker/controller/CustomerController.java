@@ -2,9 +2,12 @@ package com.houarizegai.customertracker.controller;
 
 import com.houarizegai.customertracker.dao.CustomerDAO;
 import com.houarizegai.customertracker.entity.Customer;
+import com.houarizegai.customertracker.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -13,19 +16,18 @@ import java.util.List;
 @RequestMapping("/customer")
 public class CustomerController {
 
-	// need to inject the customer dao
-	@Autowired
-	private CustomerDAO customerDao;
+	@Autowired // inject the customer service
+	private CustomerService customerService;
 
-	@RequestMapping("/list")
+	@GetMapping("/list")
 	public String listcustomers(Model model) {
-		// get customers from the dao
-		List<Customer> customers = customerDao.getCustomers();
+		// get customers from the service
+		List<Customer> customers = customerService.getCustomers();
 
 		// add customers to the model
 		model.addAttribute("customers", customers);
 
 		return "list-customers";
 	}
-	
+
 }
