@@ -42,4 +42,12 @@ public class CustomerController {
 
 		return "redirect:/customer/list";
 	}
+
+	@GetMapping("/showFormForUpdate")
+	public String showFormForUpdate(Model model, @RequestParam("customerId") int customerId) {
+		Customer customer = customerService.getCustomer(customerId);
+		model.addAttribute("customer", customer);
+
+		return "customer-form";
+	}
 }
