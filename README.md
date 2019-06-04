@@ -18,8 +18,10 @@ Customer Relationalship Manager, web application (CURD).
 * [Spring Framework](spring/javabrains) [[Free](https://www.youtube.com/playlist?list=PL85699F22F63DCD20)]
 
 ### APIs
-* [Facebook4j](https://github.com/HouariZegai/JavaLearning/tree/master/apis/facebook4j)
+* [Facebook4j](apis/facebook4j)
+* [Apache POI](apis/apache-poi)
+  * [Word](api/apis/apache-poi/src/main/com/houarizegai/apachepoi/word)
 
 ### Java 8
-* [Functional Programming](java8/src/fonctional) ((Stream API) in Java 8+)
+* [Functional Programming](java8/src/functional) ((Stream API) in Java 8+)
 * [Random](java8/src/random) (Generate unique random numbers)
