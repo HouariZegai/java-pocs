@@ -23,6 +23,7 @@ public class StreamDemo {
                 .forEach(numLetters -> System.out.println(numLetters));
 
         // collect
+        System.out.println("\nCollect:");
         Map<Character, List<String>> groupings = data.stream()
                 .collect(Collectors.groupingBy(name -> name.charAt(0)));
 
