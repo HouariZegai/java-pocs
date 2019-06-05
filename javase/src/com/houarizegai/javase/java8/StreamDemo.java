@@ -1,4 +1,4 @@
-package functional;
+package com.houarizegai.javase.java8;
 
 import java.util.Arrays;
 import java.util.List;
