@@ -1,0 +1,17 @@
+.root {
+    -fx-background-color: #ffa038;
+    -fx-font-size: 20px;
+    -fx-font-family: "Comic Sans MS" tahoma arial
+}
+
+Label, Button {
+    -fx-font-weight: bold
+}
+
+#loginLabel {
+    -fx-font-size: 28px
+}
+
+TextField, PasswordField {
+    -fx-background-radius: 10px
+}
