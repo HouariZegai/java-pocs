@@ -1,0 +1,67 @@
+.root { /* The parent of all child (scene) */
+    clr: #00F;
+    -fx-background-color:white
+}
+Button, Text { /* All Element 'Type' Button (Class Button) */
+/*    -fx-font-size:24px;
+    -fx-font-family:Tahoma;
+    -fx-font-style:italic;
+    -fx-font-weight:bold;
+    
+    -fx-font:italic bold 24px Tahoma, "Comic Sans MS"
+*/
+}
+
+Label {
+    
+    /*    -fx-text-fill: #0F0;
+    -fx-text-overrun: ellipsis;  OverFlow 
+    -fx-underline: true;  make Ligne under the text, the default is false
+    -fx-cursor: hand  Change the Cursor if i hovered the element 
+    abc : green;  Create variable 
+    -fx-background-color: abc */  
+/*    -fx-background-color: linear-gradient(from 0 0 to 100px 100px, #00ffcc, red);  Merge two color 
+    -fx-background-radius: 30px;
+    -fx-pref-width: 100px;
+    -fx-pref-height: 60px; taille fixe
+    -fx-wrap-text: true;  Continue in the second line 
+    -fx-min-height: 50px*/
+    
+    -fx-translate-x: 100px;
+    -fx-translate-y: 300px;
+    -fx-rotate: -90;
+    -fx-scale-x: 2
+    
+
+}
+
+TextField {
+/*    -fx-text-fill: #F00;
+    -fx-alignment: CENTER;
+    -fx-opacity: 0.6
+    -fx-text-fill: clr */
+    -fx-border-color: #F00;
+    -fx-border-width: 4px;
+    -fx-border-radius: 20px;
+    -fx-border-style: dotted;
+    -fx-padding: 10px
+}
+
+.c1 { /* i use dot "." because it's Class */
+/*    -fx-font-weight:bold;
+    -fx-text-fill: #FFF;
+    -fx-background-color: #000
+*/
+}
+
+.c2 {
+    -fx-font-family:arial
+}
+
+#i1 { /* i use "#" because it's Id */
+    -fx-font-size:26px
+}
+
+#idEffect {
+    -fx-effect: dropshadow(gaussian, red, 2, 2, 2, 3)
+}
