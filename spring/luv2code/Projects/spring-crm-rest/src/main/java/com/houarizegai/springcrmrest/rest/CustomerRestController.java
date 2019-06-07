@@ -28,7 +28,7 @@ public class CustomerRestController {
         return customer;
     }
 
-    // for POST / customer - add new customer
+    // for POST / customers - add new customer
     @PostMapping("/customers")
     public Customer addCustomer(@RequestBody Customer customer) {
         // also just in case the pass an id in JSON ... set id to 0
@@ -40,12 +40,23 @@ public class CustomerRestController {
         return customer;
     }
 
-    // for PUT / customer - update existing customer
+    // for PUT / customers - update existing customer
     @PutMapping("/customers")
     public Customer updateCustomer(@RequestBody Customer customer) {
         customerService.saveCustomer(customer);
         return customer;
     }
 
+    // for DELETE / customers/{customerId} - delete customer
+    @DeleteMapping("/customers/{customerId}")
+    public String deleteCustomer(@PathVariable int customerId) {
+        Customer customer = customerService.getCustomer(customerId);
+        if(customer == null) // if the customer you want to delete doesn't exists
+            throw new CustomerNotFoundException("Customer id not found - " + customerId);
+
+        customerService.deleteCustomer(customerId);
+
+        return "Deleted customer id - " + customerId;
+    }
 
 }
