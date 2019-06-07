@@ -28,7 +28,7 @@ public class CustomerRestController {
         return customer;
     }
 
-    // for POST / Customer - add new customer
+    // for POST / customer - add new customer
     @PostMapping("/customers")
     public Customer addCustomer(@RequestBody Customer customer) {
         // also just in case the pass an id in JSON ... set id to 0
@@ -39,5 +39,13 @@ public class CustomerRestController {
 
         return customer;
     }
+
+    // for PUT / customer - update existing customer
+    @PutMapping("/customers")
+    public Customer updateCustomer(@RequestBody Customer customer) {
+        customerService.saveCustomer(customer);
+        return customer;
+    }
+
 
 }
