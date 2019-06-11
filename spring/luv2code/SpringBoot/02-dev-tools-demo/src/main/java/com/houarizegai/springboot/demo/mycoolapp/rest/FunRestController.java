@@ -13,4 +13,10 @@ public class FunRestController {
     public String sayHello() {
         return "Hello World!, Time on the server is: " + LocalDateTime.now();
     }
+
+    // Expose a new end point "fortune"
+    @GetMapping("/fortune")
+    public String getFortune() {
+        return "Today is your lucky day.";
+    }
 }
