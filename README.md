@@ -9,6 +9,7 @@
   * [Stream API](javase/src/com/houarizegai/javase/java8/StreamDemo.java)
   * [Lambda Expression](javase/src/com/houarizegai/javase/java8/lambda)
 * [Regular Expression](javase/src/com/houarizegai/javase/regex)
+* [RMI](rmi)
 
 ### GUI
 * [Swing](gui/swing/src/com/houarizegai/swingdemo)
@@ -23,11 +24,20 @@
 * [Spring Security](spring/luv2code/SpringSecurity)
 * [Spring REST](spring/luv2code/SpringREST)
 * [Spring Boot](spring/luv2code/SpringBoot)
+* [Thymleaf](spring/luv2code/SpringBoot/30-thymeleafdemo-helloworld)
 * Projects
-  * [Web Customer Tracker Project](spring/luv2code/Projects/web-customer-tracker): Spring MVC, Hibernate & Maven  
-Customer Relationalship Manager, web application (CRUD).
-  * [Spring CRM REST Project](spring/luv2code/Projects/spring-crm-rest): Spring MVC, Spring REST, Hibernate & Maven  
-  REST API for Customer (CRUD).
+  * [Web Customer Tracker Project](spring/luv2code/Projects/web-customer-tracker) \[Customer Relationalship Manager, web application (CRUD)\].  
+  Using: Spring MVC, Hibernate & Maven
+  * [Spring CRM REST Project](spring/luv2code/Projects/spring-crm-rest) \[REST API for Customer (CRUD)\].  
+   Using: Spring MVC, Spring REST, Hibernate & Maven
+  * [Spring Boot CRUD - Hibernate](spring/luv2code/Projects/21-spring-boot-crud-hibernate) \[Web API (REST CRUD End-points)\].  
+  Using: Spring Boot, Spring REST, Hibernate & Maven
+  * [Spring Boot CRUD - JPA](spring/luv2code/Projects/22-spring-boot-crud-jpa) \[Web API (REST CRUD End-points)\].  
+  Using: Spring Boot, JPA, Spring REST, Hibernate & Maven
+  * [Spring Boot CRUD - Spring Data JPA](spring/luv2code/Projects/23-spring-boot-crud-spring-data-jpa) \[Web API (CRUD End-points)\].  
+  Using: Spring Boot, Spring Data JPA, Spring REST, Hibernate & Maven
+  * [Spring Boot CRUD - Spring Data JPA & REST](spring/luv2code/Projects/24-spring-boot-crud-spring-data-rest) \[Web API (CRUD End-points)\].  
+  Using: Spring Boot, Spring Data JPA, Spring Data REST, Hibernate & Maven
 
 ### Javabrains
 * [Spring Framework](spring/javabrains/SpringFrameworkDemo) [[Free](https://www.youtube.com/playlist?list=PL85699F22F63DCD20)]
