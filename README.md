@@ -11,6 +11,9 @@
 * [Regular Expression](javase/src/com/houarizegai/javase/regex)
 * [RMI](rmi)
 
+## Testing
+* [JUnit](JUnit)
+
 ### GUI
 * [Swing](gui/swing/src/com/houarizegai/swingdemo)
 * [JavaFX](gui/javafx/src/com/houarizegai/javafxdemo)
