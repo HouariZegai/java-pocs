@@ -15,6 +15,12 @@ public class CollectionsDemo {
         System.out.println(linkedList.poll());
         System.out.println(linkedList);
 
-        
+        System.out.println("\nArrayList:");
+        ArrayList arrayList = new ArrayList<>();
+        arrayList.add("2017");
+        arrayList.add("2018");
+        arrayList.remove("2018");
+        arrayList.add(0, "2016");
+        System.out.println(arrayList);
     }
 }
