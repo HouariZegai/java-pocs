@@ -18,6 +18,9 @@
 * [Swing](gui/swing/src/com/houarizegai/swingdemo)
 * [JavaFX](gui/javafx/src/com/houarizegai/javafxdemo)
 
+### Java Developer NanoDegree program - Udacity [[Paid](https://www.udacity.com/course/java-developer-nanodegree--nd035)]
+* [Course practice](jdnd)
+
 ### Luv2code [[Paid](https://udemy.com/spring-hibernate-tutorial)]
 * [Spring Framework (basic)](spring/luv2code/SpringBasic)
 * [Spring MVC](spring/luv2code/SpringMVC)
