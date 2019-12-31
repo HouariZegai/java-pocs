@@ -1,6 +1,7 @@
 package com.houarizegai.springboothelloworld.servlet;
 
-import javax.servlet.ServletException;
+import javax.servlet.*;
+import javax.servlet.annotation.WebFilter;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,5 +16,7 @@ public class HelloServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PrintWriter out = resp.getWriter();
         out.println("Running Hello Servlet doGet Method.");
+        System.out.println("Running Hello Servlet doGet Method.");
     }
 }
+
