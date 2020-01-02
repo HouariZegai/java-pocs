@@ -6,5 +6,19 @@
 </head>
 <body>
     <span th:text="${msg}"></span>
+
+    <h3>Exam Results</h3>
+    <div th:if="${grade} >= 60">
+        You passed the exam.
+        <div th:switch="${GPA}">You are
+            <span th:case="A">Excellent</span>
+            <span th:case="B">Good</span>
+            <span th:case="C">Okay</span>
+            <span th:case="D">Need improvement</span>
+        </div>
+    </div>
+    <div th:if="${grade < 60}">
+        You failed the exam.
+    </div>
 </body>
 </html>
