@@ -20,15 +20,14 @@ public class StreamDemo {
         System.out.println("\nMap:");
         data.stream()
                 .mapToInt(name -> name.length())
-                .forEach(numLetters -> System.out.println(numLetters));
+                .forEach(System.out::println);
 
         // collect
         System.out.println("\nCollect:");
         Map<Character, List<String>> groupings = data.stream()
                 .collect(Collectors.groupingBy(name -> name.charAt(0)));
 
-        groupings.forEach((firstLetter, names) -> {
-            System.out.println(firstLetter + ": " + names);
-        });
+        groupings.forEach((firstLetter, names) -> System.out.println(firstLetter + ": " + names));
     }
+
 }
