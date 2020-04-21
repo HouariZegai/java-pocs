@@ -7,11 +7,19 @@ public class OptionalDemo {
     public static void main(String[] args) {
         Employee employee = null;
         printEmployeeName(ofNullable(employee));
+        // or
+        printEmployeeName(employee);
+        printEmployeeName(new Employee());
+
     }
 
     public static void printEmployeeName(Optional<Employee> employee) {
 //        employee.ifPresent(System.out::println);
         employee.ifPresent(emp -> System.out.println("Employee: " + emp));
+    }
+
+    public static void printEmployeeName(Employee employee) {
+        ofNullable(employee).ifPresent(System.out::println);
     }
 }
 
@@ -42,5 +50,14 @@ class Employee {
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", salary=" + salary +
+                '}';
     }
 }
