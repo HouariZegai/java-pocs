@@ -65,3 +65,6 @@
 * [Folders](javase/src/com/houarizegai/javase/file/FoldersDemo.java): create folders (mkdirs), ...
 * [Numbers to words](tools/src/numbertowords): convert numbers to words (language supported: AR/EN/FR).
 * [Random](tools/src/random): generate unique random numbers.
+
+## Other
+* [OpenCV](opencv)
