@@ -37,6 +37,14 @@ public class StringTest {
     }
 
     @Test
+    void lengthException() {
+        String str = null;
+        assertThrows(NullPointerException.class, () -> {
+            int strLength = str.length();
+        });
+    }
+
+    @Test
     void toUpperCaseBasic() {
         var str = "mohamed";
         var result = str.toUpperCase();
