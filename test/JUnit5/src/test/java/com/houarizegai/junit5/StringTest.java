@@ -2,7 +2,6 @@ package com.houarizegai.junit5;
 
 import org.junit.jupiter.api.AfterEach;
 
-
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.*;
@@ -66,6 +65,7 @@ public class StringTest {
     }
 
     @Test
+    @RepeatedTest(5) // Repeat the test
     void splitBasic() {
         var result = "ab cd ef".split(" ");
         var expectedOutput = new String[]{"ab", "cd", "ef"};

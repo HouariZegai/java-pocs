@@ -12,7 +12,7 @@
 * [RMI](rmi)
 
 ## Testing
-* [JUnit](JUnit)
+* [JUnit 5](test/JUnit5)
 
 ### GUI
 * [Swing](gui/swing/src/com/houarizegai/swingdemo)
