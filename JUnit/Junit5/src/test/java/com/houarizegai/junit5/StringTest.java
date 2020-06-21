@@ -7,13 +7,34 @@ import org.junit.jupiter.api.Test;
 public class StringTest {
 
     @Test
-    void test() {
-        int actualLength = "Houari".length();
-        int expectedLength = 6;
+    void lengthBasic() {
+        var actualLength = "Houari".length();
+        var expectedLength = 6;
         assertEquals(expectedLength, actualLength);
+    }
 
-        int actualOutput = Math.abs(-10);
-        int expectedOutput = 10;
-        assertEquals(expectedOutput, actualOutput);
+    @Test
+    void toUpperCaseBasic() {
+        var str = "mohamed";
+        var result = str.toUpperCase();
+        assertNotNull(result);
+        //assertNull(result);
+        assertEquals("MOHAMED", result);
+    }
+
+    @Test
+    void containsBasic() {
+        /*String str = "Welcome to Java";
+        boolean result = str.contains("Kotlin");
+        assertFalse(result); // or: assertEquals(false, result);*/
+        assertFalse("Welcome to Java".contains("Kotlin"));
+    }
+
+    @Test
+    void splitBasic() {
+        String str = "ab cd ef";
+        var result = str.split(" ");
+        var expectedOutput = new String[]{"ab", "cd", "ef"};
+        assertArrayEquals(result, expectedOutput);
     }
 }
