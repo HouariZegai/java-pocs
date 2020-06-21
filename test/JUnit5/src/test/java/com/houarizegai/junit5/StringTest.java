@@ -9,7 +9,12 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.time.Duration;
+
+//@Disabled // not execute this class in test (ignored)
 public class StringTest {
+
+    String str;
 
     @BeforeAll
     static void beforeAll() {
@@ -57,6 +62,7 @@ public class StringTest {
     }
 
     @Test
+    @Disabled // like @Ignored in JUnit 4
     void containsBasic() {
         /*String str = "Welcome to Java";
         boolean result = str.contains("Kotlin");
@@ -89,5 +95,32 @@ public class StringTest {
     @CsvSource(value = {"Mohamed, 7", "Apple, 5", "'', 0", "blabla, 6"})
     void lengthTests(String str, int expectedLength) {
         assertEquals(expectedLength, str.length());
+    }
+
+    @Test
+    void performanceTest() {
+        assertTimeout(Duration.ofSeconds(1), () -> {
+            for(int i = 0; i < 100; i++)
+                System.out.println(i);
+        });
+    }
+
+    @Nested
+    class EmptyStringTests {
+        @BeforeEach
+        void setToEmpty() {
+            str = "";
+        }
+
+        @Test
+        void lengthIsZero() {
+            assertEquals(0, str.length());
+        }
+
+        @Test
+        @DisplayName("Lower case is empty")
+        void lowerCaseIsEmpty() {
+            assertEquals("", str.toLowerCase());
+        }
     }
 }
