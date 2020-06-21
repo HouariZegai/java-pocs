@@ -9,6 +9,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.time.Duration;
+
 public class StringTest {
 
     @BeforeAll
@@ -89,5 +91,13 @@ public class StringTest {
     @CsvSource(value = {"Mohamed, 7", "Apple, 5", "'', 0", "blabla, 6"})
     void lengthTests(String str, int expectedLength) {
         assertEquals(expectedLength, str.length());
+    }
+
+    @Test
+    void performanceTest() {
+        assertTimeout(Duration.ofSeconds(1), () -> {
+            for(int i = 0; i < 100; i++)
+                System.out.println(i);
+        });
     }
 }
