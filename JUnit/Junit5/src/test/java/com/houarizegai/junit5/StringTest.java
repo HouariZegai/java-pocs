@@ -6,6 +6,9 @@ import org.junit.jupiter.api.AfterEach;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class StringTest {
 
@@ -37,6 +40,15 @@ public class StringTest {
     }
 
     @Test
+    @DisplayName("When string is null, throw an exception.")
+    void lengthException() {
+        String str = null;
+        assertThrows(NullPointerException.class, () -> {
+            int strLength = str.length();
+        });
+    }
+
+    @Test
     void toUpperCaseBasic() {
         var str = "mohamed";
         var result = str.toUpperCase();
@@ -58,5 +70,24 @@ public class StringTest {
         var result = "ab cd ef".split(" ");
         var expectedOutput = new String[]{"ab", "cd", "ef"};
         assertArrayEquals(expectedOutput, result);
+    }
+
+    // Using parameterized test (same test for different values)
+    @ParameterizedTest
+    @ValueSource(strings = {"houari", "mohamed", "omar", "cc"})
+    void lengthGreaterThan(String str) {
+        assertTrue(str.length() > 0);
+    }
+
+    @ParameterizedTest
+    @CsvSource(value = {"Houari, HOUARI", "'',''", "a, A", "dz, DZ"})
+    void upperCase(String word, String capitalizedWord) {
+        assertEquals(capitalizedWord, word.toUpperCase());
+    }
+
+    @ParameterizedTest(name = "{0} length is: {1}")
+    @CsvSource(value = {"Mohamed, 7", "Apple, 5", "'', 0", "blabla, 6"})
+    void lengthTests(String str, int expectedLength) {
+        assertEquals(expectedLength, str.length());
     }
 }
