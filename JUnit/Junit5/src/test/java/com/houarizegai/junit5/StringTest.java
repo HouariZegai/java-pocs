@@ -1,17 +1,32 @@
 package com.houarizegai.junit5;
 
+import org.junit.jupiter.api.AfterEach;
+
+
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInfo;
+import org.junit.jupiter.api.*;
 
 public class StringTest {
+
+    @BeforeAll
+    static void beforeAll() {
+        System.out.println("Before all tests (open connection, init database, ...)");
+    }
+
+    @AfterAll
+    static void afterAll() {
+        System.out.println("After all tests (close network & database, cleanup data, ...)");
+    }
 
     @BeforeEach // like: Before (JUnit 4)
     void beforeEach(TestInfo info) {
         System.out.println("Initialize test data for " + info.getDisplayName());
+    }
+
+    @AfterEach
+    void afterEach(TestInfo info) {
+        System.out.println("After each test (like: clean up test data) " + info.getDisplayName());
     }
 
     @Test
@@ -43,10 +58,5 @@ public class StringTest {
         var result = "ab cd ef".split(" ");
         var expectedOutput = new String[]{"ab", "cd", "ef"};
         assertArrayEquals(expectedOutput, result);
-    }
-
-    @AfterEach
-    void afterEach(TestInfo info) {
-        System.out.println("After each test (like: clean up test data) " + info.getDisplayName());
     }
 }
