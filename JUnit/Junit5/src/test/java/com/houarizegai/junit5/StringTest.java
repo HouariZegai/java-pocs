@@ -32,9 +32,8 @@ public class StringTest {
 
     @Test
     void splitBasic() {
-        String str = "ab cd ef";
-        var result = str.split(" ");
+        var result = "ab cd ef".split(" ");
         var expectedOutput = new String[]{"ab", "cd", "ef"};
-        assertArrayEquals(result, expectedOutput);
+        assertArrayEquals(expectedOutput, result);
     }
 }
