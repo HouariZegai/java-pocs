@@ -1,8 +1,6 @@
-package callbacks;
-
 import java.util.function.Consumer;
 
-public class Main {
+public class Callbacks {
     public static void main(String[] args) {
         hello("Houari", null, value -> System.out.println("No last name provided for " + value));
         hello2("Houari", null, () -> System.out.println("No last name provided!"));
