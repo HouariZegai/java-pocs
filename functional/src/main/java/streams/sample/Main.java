@@ -2,6 +2,7 @@ package streams.sample;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -45,6 +46,23 @@ public class Main {
         people.stream()
                 .min(Comparator.comparing(Person::getAge))
                 .ifPresent(person -> System.out.println("Younger person is: " + person));
+
+        // Group
+        System.out.println("// Group");
+        Map<Gender, List<Person>> groupByGender = people.stream()
+                .collect(Collectors.groupingBy(Person::getGender));
+
+        System.out.println("Males" + groupByGender.get(Gender.MALE));
+        System.out.println("Females" + groupByGender.get(Gender.FEMALE));
+
+        // example: get the younger female name
+        System.out.print("Younger female name: ");
+        people.stream()
+                .filter(person -> person.getGender().equals(Gender.FEMALE))
+                .min(Comparator.comparing(Person::getAge))
+                .map(person -> person.getName())
+                .ifPresent(System.out::println);
+
     }
 
     private static List<Person> getPeople() {
