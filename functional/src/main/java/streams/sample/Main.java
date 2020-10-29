@@ -60,7 +60,7 @@ public class Main {
         people.stream()
                 .filter(person -> person.getGender().equals(Gender.FEMALE))
                 .min(Comparator.comparing(Person::getAge))
-                .map(person -> person.getName())
+                .map(Person::getName)
                 .ifPresent(System.out::println);
 
     }
