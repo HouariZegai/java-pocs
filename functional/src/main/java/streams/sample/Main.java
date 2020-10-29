@@ -13,7 +13,6 @@ public class Main {
         List<Person> females = people.stream()
                 .filter(person -> Gender.FEMALE.equals(person.getGender()))
                 .collect(Collectors.toList());
-
         females.forEach(System.out::println);
 
         // Sort
@@ -21,7 +20,21 @@ public class Main {
         people.stream()
                 .sorted(Comparator.comparing(Person::getAge).reversed().thenComparing(Person::getGender))
                 .forEach(System.out::println);
-        
+
+        // All match
+        System.out.println("// All match");
+        boolean allMatch = people.stream()
+                .allMatch(person -> person.getAge() > 18);
+        System.out.println("All have age > 18? " + allMatch);
+
+        boolean femaleExists = people.stream()
+                .anyMatch(person -> Gender.FEMALE.equals(person.getGender()));
+        System.out.println("Female exists?: " + femaleExists);
+
+        boolean noneMatch = people.stream()
+                .noneMatch(person -> person.getName().equalsIgnoreCase("houari"));
+        System.out.println("Houari doesn't exists on the list? " + noneMatch);
+
     }
 
     private static List<Person> getPeople() {
