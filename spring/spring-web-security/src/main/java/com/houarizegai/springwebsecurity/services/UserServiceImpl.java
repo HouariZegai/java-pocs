@@ -52,4 +52,19 @@ public class UserServiceImpl implements UserService {
         userDao.deleteById(id);
     }
 
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        Optional<User> userOptional = userDao.findByEmail(email);
+
+        if(userOptional.isPresent()) {
+            return buildUserForAuthentication(userOptional.get(), Collections.singletonList(new SimpleGrantedAuthority("USER")));
+        } else
+            throw new UsernameNotFoundException("Username Not found.");
+    }
+
+
+    private UserDetails buildUserForAuthentication(User user, List<GrantedAuthority> authorities) {
+        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(),
+                true, true, true, true, authorities);
+    }
 }
