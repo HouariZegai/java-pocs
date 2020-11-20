@@ -1,5 +1,6 @@
 package com.houarizegai.springaop.controller;
 
+import com.houarizegai.springaop.model.User;
 import com.houarizegai.springaop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +15,8 @@ public class UserController {
     @GetMapping("/user")
     public ResponseEntity<Void> saveUser() {
         userService.save();
-
+        userService.save(new User(1, "Mohamed"));
+        userService.greeting("Houari");
         return ResponseEntity.ok().build();
     }
 
