@@ -28,7 +28,7 @@ public class EmployeeRestController {
     public Employee getEmployee(@PathVariable(name = "employeeId") int id) {
         Employee employee = employeeService.findById(id);
 
-        if(employee == null)
+        if (employee == null)
             throw new RuntimeException("Employee id not found - " + id);
 
         return employee;
@@ -50,7 +50,7 @@ public class EmployeeRestController {
     @DeleteMapping("/employees/{employeeId}")
     public String deleteEmployee(@PathVariable(name = "employeeId") int id) {
         Employee employee = employeeService.findById(id);
-        if(employee == null) { // throw exception if employee not exist
+        if (employee == null) { // throw exception if employee not exist
             throw new RuntimeException("Employee is not found - " + id);
         }
 

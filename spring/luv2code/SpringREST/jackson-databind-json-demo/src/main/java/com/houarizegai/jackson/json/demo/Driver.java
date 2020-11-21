@@ -27,10 +27,10 @@ public class Driver {
             System.out.println("\tCity: " + address.getCity());
 
             System.out.print("Languages: \n\t");
-            for(String lang : student.getLanguages())
+            for (String lang : student.getLanguages())
                 System.out.print(lang + ", ");
 
-        } catch(IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

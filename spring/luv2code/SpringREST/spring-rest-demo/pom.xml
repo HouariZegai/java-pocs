@@ -10,7 +10,8 @@
     <packaging>war</packaging>
 
     <properties>
-        <org.springframework.version>5.2.0.RELEASE</org.springframework.version> <!-- Shared version number properties -->
+        <org.springframework.version>5.2.0.RELEASE
+        </org.springframework.version> <!-- Shared version number properties -->
     </properties>
 
     <dependencies>

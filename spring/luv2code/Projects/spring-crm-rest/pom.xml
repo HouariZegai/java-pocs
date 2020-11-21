@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.houarizegai</groupId>
     <artifactId>spring-crm-rest</artifactId>
@@ -6,7 +7,8 @@
     <packaging>war</packaging>
 
     <properties>
-        <org.springframework.version>5.2.3.RELEASE</org.springframework.version> <!-- Shared version number properties -->
+        <org.springframework.version>5.2.3.RELEASE
+        </org.springframework.version> <!-- Shared version number properties -->
         <hibernate.version>5.4.2.Final</hibernate.version>
         <mysql.connector.vresion>8.0.16</mysql.connector.vresion>
         <c3p0.version>0.9.1.2</c3p0.version>
