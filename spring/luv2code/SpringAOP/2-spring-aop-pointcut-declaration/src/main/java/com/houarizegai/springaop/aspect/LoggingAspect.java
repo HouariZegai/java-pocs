@@ -29,7 +29,7 @@ public class LoggingAspect {
     public void forModelPackageNoGetterSetter() {
     }
 
-    // Important: work only with spring components
+    // Important: Spring AOP work only with spring components
     @Before("forModelPackageNoGetterSetter()")
     public void modelPackageNoGetterSetter() {
         System.out.println("=====> Aspect - @Before method in class inside model package expect setter & getter");
