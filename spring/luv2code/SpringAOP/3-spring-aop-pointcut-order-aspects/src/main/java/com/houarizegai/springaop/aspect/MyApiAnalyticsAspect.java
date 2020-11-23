@@ -7,11 +7,11 @@ import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-@Order(-2)
-public class LoggingAspect {
+@Order(1)
+public class MyApiAnalyticsAspect {
 
     @Before("execution(public void com.houarizegai.springaop.dao.*.*(..))")
-    public void beforeAddUserAdvice() {
-        System.out.println("=====> User Aspect - @Before method in class inside dao package");
+    public void  performApiAnalyticsAdvice() {
+        System.out.println("=====> API Aspect - @Before method in class inside dao package");
     }
 }
