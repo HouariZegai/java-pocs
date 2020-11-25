@@ -8,7 +8,10 @@ import java.util.List;
 @Component
 public class UserRepository {
 
-    public List<User> findAll() {
+    public List<User> findAll() throws Exception {
+        if(true)
+            throw new Exception("Not found");
+
         return List.of(
                 new User(1, "Mohamed"),
                 new User(2, "Houari")

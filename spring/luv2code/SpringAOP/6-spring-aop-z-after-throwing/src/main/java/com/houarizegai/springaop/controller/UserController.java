@@ -16,7 +16,12 @@ public class UserController {
 
     @GetMapping("/users")
     public ResponseEntity<List<User>> saveUser() {
-        return ResponseEntity.ok(userRepository.findAll());
+        try {
+            return ResponseEntity.ok(userRepository.findAll());
+        } catch (Exception exception) {
+            exception.printStackTrace();
+            return ResponseEntity.notFound().build();
+        }
     }
 
 }
