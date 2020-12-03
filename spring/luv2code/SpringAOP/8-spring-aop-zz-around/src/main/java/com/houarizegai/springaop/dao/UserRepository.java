@@ -10,6 +10,10 @@ import java.util.concurrent.TimeUnit;
 public class UserRepository {
 
     public List<User> findAll() {
+        if(true) {
+            throw new RuntimeException("No users for you -_-");
+        }
+
         try {
             TimeUnit.SECONDS.sleep(5L); // sleep 5 seconds
         } catch (InterruptedException e) {
