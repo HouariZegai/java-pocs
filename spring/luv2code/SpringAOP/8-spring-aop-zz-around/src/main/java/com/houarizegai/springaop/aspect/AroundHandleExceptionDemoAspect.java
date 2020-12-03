@@ -5,7 +5,6 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
-import java.util.Collections;
 import java.util.logging.Logger;
 
 @Aspect
@@ -20,10 +19,13 @@ public class AroundHandleExceptionDemoAspect {
         logger.info("Around aspect: " + proceedingJoinPoint.getSignature().getDeclaringTypeName());
 
         try {
-        return proceedingJoinPoint.proceed();
-        } catch (Throwable throwable) {
-            logger.warning("Exception catched on Around find All");
-            return Collections.emptyList();
+            return proceedingJoinPoint.proceed();
+        } catch (Throwable e) {
+            logger.warning("Aspect Exception  on Around find All" + e.getMessage());
+            //return Collections.emptyList();
+
+            // rethrow the exception
+            throw new RuntimeException(e.getMessage());
         }
 
     }
