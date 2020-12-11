@@ -1,4 +1,4 @@
-package com.houarizegai.springsecuritybasicauth.config;
+package com.houarizegai.springsecuritybasicauth.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
