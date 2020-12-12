@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Login Page</title>
@@ -7,8 +7,9 @@
 <body>
 <h1>Login Page</h1>
     <form method="post" action="/login">
-        <input type="text" name="username">
-        <input type="text" name="password">
+        <input type="text" name="username"><br>
+        <input type="text" name="password"><br>
+        <input type="checkbox" name="remember-me">Remember me<br>
         <input type="submit" value="Sign In to our system :D">
     </form>
 </body>
