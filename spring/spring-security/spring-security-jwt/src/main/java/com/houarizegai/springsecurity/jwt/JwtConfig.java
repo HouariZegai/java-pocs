@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class JwtConfig {
     private String secretKey;
     private String tokenPrefix;
-    private Integer tokenExpirationAfter;
+    private Integer tokenExpirationAfterDays;
 
     public String getAuthorizationHeader() {
         return HttpHeaders.AUTHORIZATION;
