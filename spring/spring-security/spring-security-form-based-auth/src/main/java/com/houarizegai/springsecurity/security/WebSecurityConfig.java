@@ -40,7 +40,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authenticated()
                 .and()
                 .formLogin()
-<<<<<<< HEAD
                     .loginPage("/login").permitAll()
                     .defaultSuccessUrl("/courses", true)
                     .usernameParameter("user") // default: username
@@ -55,13 +54,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .invalidateHttpSession(true)
                     .deleteCookies("JSESSIONID", "remember-me")
                     .logoutSuccessUrl("/login");
-=======
-                .loginPage("/login")
-                .defaultSuccessUrl("/courses", true).permitAll()
-                .and()
-                .rememberMe() // default 2 weeks
-                .tokenValiditySeconds((int) TimeUnit.DAYS.toSeconds(21));
->>>>>>> 75d348ef1f34ddb335351a9a7bb86641d772b307
     }
 
     @Override
