@@ -82,4 +82,55 @@ public class FileDownloadController {
         }
     }
 
+    @GetMapping("/downloadFolder/{id}")
+    public void downloadFile(HttpServletResponse response, @PathVariable String id) throws IOException {
+        Path sourceDirPath = Paths.get(DOWNLOAD_FOLDER + id);
+
+        try (ZipOutputStream zipOutputStream = new ZipOutputStream(response.getOutputStream());
+             Stream<Path> paths = Files.walk(sourceDirPath)) {
+            paths
+                    .filter(path -> !Files.isDirectory(path))
+                    .forEach(path -> {
+                        ZipEntry zipEntry = new ZipEntry(sourceDirPath.relativize(path).toString());
+                        try {
+                            zipOutputStream.putNextEntry(zipEntry);
+                            Files.copy(path, zipOutputStream);
+                            zipOutputStream.closeEntry();
+                        } catch (IOException e) {
+                            System.err.println(e);
+                        }
+                    });
+
+            zipOutputStream.finish();
+        }
+    }
+
+    @PostMapping("/downloadMultiFiles")
+    public void downloadMultiFile(@RequestBody String[] ids, HttpServletResponse response) throws Exception {
+        try (ZipOutputStream zipOutputStream = new ZipOutputStream(response.getOutputStream())) {
+            Arrays.stream(ids)
+                    .distinct()
+                    .forEach(id -> {
+                        Path sourceDirPath = Paths.get(DOWNLOAD_FOLDER + id);
+                        try {
+                            Files.walk(sourceDirPath)
+                                    .filter(path -> !Files.isDirectory(path))
+                                    .forEach(path -> {
+                                        System.out.println(sourceDirPath.relativize(path).toString());
+                                        ZipEntry zipEntry = new ZipEntry(id + "/" + sourceDirPath.relativize(path).toString());
+                                        try {
+                                            zipOutputStream.putNextEntry(zipEntry);
+                                            Files.copy(path, zipOutputStream);
+                                            zipOutputStream.closeEntry();
+                                        } catch (IOException e) {
+                                            System.err.println(e);
+                                        }
+                                    });
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    });
+            zipOutputStream.finish();
+        }
+    }
 }
