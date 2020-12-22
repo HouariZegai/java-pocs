@@ -52,4 +52,34 @@ public class FileDownloadController {
                 .contentType(MediaType.APPLICATION_OCTET_STREAM)
                 .body(resource);
     }
+
+    @GetMapping("/downloadZip")
+    public void downloadFile(HttpServletResponse response) {
+
+        response.setContentType("application/octet-stream");
+        response.setHeader("Content-Disposition", "attachment;filename=download.zip");
+        response.setStatus(HttpServletResponse.SC_OK);
+
+        List<String> fileNames = Arrays.asList("1.png", "2.png");
+
+        try (ZipOutputStream zippedOut = new ZipOutputStream(response.getOutputStream())) {
+            for (String file : fileNames) {
+                FileSystemResource resource = new FileSystemResource(DOWNLOAD_FOLDER + file);
+
+                ZipEntry e = new ZipEntry(resource.getFilename());
+                // Configure the zip entry, the properties of the file
+                e.setSize(resource.contentLength());
+                e.setTime(System.currentTimeMillis());
+                // etc.
+                zippedOut.putNextEntry(e);
+                // And the content of the resource:
+                StreamUtils.copy(resource.getInputStream(), zippedOut);
+                zippedOut.closeEntry();
+            }
+            zippedOut.finish();
+        } catch (Exception e) {
+            // Exception handling goes here
+        }
+    }
+
 }
