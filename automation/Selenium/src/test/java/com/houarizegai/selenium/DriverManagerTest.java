@@ -52,4 +52,18 @@ public class DriverManagerTest {
 
         driver.close();
     }
+
+    @Test
+    public void searchInGoogleTest() throws InterruptedException {
+        driver.get("https://google.com");
+        WebElement searchBox = driver.findElement(new By.ByName("q"));
+        searchBox.sendKeys("houari zegai");
+
+        Thread.sleep(2000);
+
+        WebElement searchBtn = driver.findElement(new By.ByName("btnK"));
+        searchBtn.click();
+
+        Thread.sleep(15000);
+    }
 }
