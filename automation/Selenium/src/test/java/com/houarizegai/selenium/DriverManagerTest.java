@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -34,6 +35,7 @@ public class DriverManagerTest {
     @After
     public void teardown() {
         if (driver != null) {
+            driver.close();
             driver.quit();
         }
     }
@@ -63,7 +65,9 @@ public class DriverManagerTest {
 
         WebElement searchBtn = driver.findElement(new By.ByName("btnK"));
         searchBtn.click();
+        // or:
+        // searchBtn.sendKeys(Keys.RETURN);
 
-        Thread.sleep(15000);
+        Thread.sleep(5000);
     }
 }
