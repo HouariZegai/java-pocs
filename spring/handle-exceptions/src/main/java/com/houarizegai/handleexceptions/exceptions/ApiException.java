@@ -11,12 +11,10 @@ import java.time.ZonedDateTime;
  * @author HouariZegai, created on 25/05/2021
  */
 @Getter
-@Setter
 @RequiredArgsConstructor
 public class ApiException {
 
     private final String message;
-    private final Throwable throwable;
     private final HttpStatus httpStatus;
     private final ZonedDateTime zonedDateTime;
 }

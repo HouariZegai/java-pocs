@@ -1,5 +1,6 @@
 package com.houarizegai.handleexceptions.controller;
 
+import com.houarizegai.handleexceptions.exceptions.ApiRequestException;
 import com.houarizegai.handleexceptions.models.Employee;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +28,8 @@ public class EmployeeController {
 
     @GetMapping("/employees")
     public ResponseEntity<List<Employee>> getAllEmployees() {
-        return ResponseEntity.ok(employees);
+        throw new ApiRequestException("Cannot get all employees!");
+//        return ResponseEntity.ok(employees);
     }
 
     @GetMapping("/employees/{id}")
