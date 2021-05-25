@@ -1,13 +1,13 @@
-package com.houarizegai.swaggerdemo;
+package com.houarizegai.httptrace;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SwaggerApplication {
+public class HttpTraceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SwaggerApplication.class, args);
+        SpringApplication.run(HttpTraceApplication.class, args);
     }
 
 }
