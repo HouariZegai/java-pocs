@@ -1,18 +1,19 @@
 package com.houarizegai.mapstructdemo.dto;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import java.time.LocalDate;
+import lombok.Setter;
 
 /**
  * @author HouariZegai, created on 09/02/2021
  */
-@Data
-@AllArgsConstructor
+@Getter
+@Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class CustomerDto {
+
     private String fullName;
     private double creditScore;
     private String dateOfBirth;

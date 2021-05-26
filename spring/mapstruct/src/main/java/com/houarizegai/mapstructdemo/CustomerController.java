@@ -26,6 +26,6 @@ public class CustomerController {
     public ResponseEntity<CustomerDto> getCustomer() {
         Customer customer = new Customer(1, "Houari", "Zegai", 120.0,
                 LocalDate.now());
-        return ResponseEntity.ok(customerMapper.customerToDao(customer));
+        return ResponseEntity.ok(customerMapper.toCustomerDao(customer));
     }
 }

@@ -10,5 +10,5 @@ public interface CustomerMapper {
 
     @Mapping(target = "fullName", expression = "java(customer.getFirstname() + \" \" + customer.getLastname())")
     @Mapping(target = "dateOfBirth", dateFormat = "dd.MM.yyyy")
-    CustomerDto customerToDao(Customer customer);
+    CustomerDto toCustomerDao(Customer customer);
 }
