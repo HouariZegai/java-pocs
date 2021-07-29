@@ -25,22 +25,32 @@ public class SpringMongoCrudApplication {
             Address address = new Address("Algeria", "Tiaret", "14000");
 
             List<String> favouriteSubjects = List.of("Software Engineering", "Java", "Spring framework");
-            String email = "gwwkhouari@gmail.com";
+            String email = "engzegai@gmail.com";
             Student student = new Student("Houari", "Zegai", email,
                     Gender.MALE, address, favouriteSubjects, BigDecimal.TEN, LocalDateTime.now());
 
-            Query query = new Query();
-            query.addCriteria(Criteria.where("email").is(email));
-            List<Student> students = mongoTemplate.find(query, Student.class);
-            if (students.size() > 1) {
-                throw new IllegalStateException("Found many students with email " + email);
-            }
+//            usingMongoQueryAndTemplate(studentRepository, mongoTemplate, email, student);
 
-            if (students.isEmpty()) {
+            studentRepository.findStudentByEmail(email).ifPresentOrElse(std -> {
+                System.out.println("Student email already exist!");
+            }, () -> {
                 studentRepository.insert(student);
-            } else {
-                System.out.println("Student already exist!");
-            }
+            });
         };
+    }
+
+    private void usingMongoQueryAndTemplate(StudentRepository studentRepository, MongoTemplate mongoTemplate, String email, Student student) {
+        Query query = new Query();
+        query.addCriteria(Criteria.where("email").is(email));
+        List<Student> students = mongoTemplate.find(query, Student.class);
+        if (students.size() > 1) {
+            throw new IllegalStateException("Found many students with email " + email);
+        }
+
+        if (students.isEmpty()) {
+            studentRepository.insert(student);
+        } else {
+            System.out.println("Student already exist!");
+        }
     }
 }
