@@ -5,6 +5,7 @@ import com.houarizegai.tddcars.model.Car;
 import com.houarizegai.tddcars.repository.CarRepository;
 import com.houarizegai.tddcars.service.CarService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,6 +14,7 @@ public class CarServiceImpl implements CarService {
 
     private final CarRepository carRepository;
 
+    @Cacheable("car")
     @Override
     public Car getCarDetails(String name) {
         return carRepository.findByName(name).orElseThrow(CarNotFoundException::new);
