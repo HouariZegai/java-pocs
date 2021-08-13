@@ -1,6 +1,5 @@
-package com.houarizegai.tddcars;
+package com.houarizegai.tddcars.controller;
 
-import com.houarizegai.tddcars.controller.CarController;
 import com.houarizegai.tddcars.exception.CarNotFoundException;
 import com.houarizegai.tddcars.model.Car;
 import com.houarizegai.tddcars.service.CarService;
