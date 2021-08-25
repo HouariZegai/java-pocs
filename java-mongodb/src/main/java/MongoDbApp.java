@@ -1,10 +1,7 @@
 import com.mongodb.*;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class MongoDbApp {
 
@@ -20,12 +17,31 @@ public class MongoDbApp {
         );
 
 
+        // Insert
         people.stream().map(MongoDbApp::personToDBObject)
                 .forEach(collection::insert);
 
 
+        // Read
         DBCursor cursor = collection.find(personToDBObject(people.get(0)));
         System.out.println(cursor.one());
+
+        // Read all data found
+        System.out.print("Read all match: ");
+        while(cursor.hasNext()) {
+            System.out.println(cursor.next());
+        }
+
+        // Update
+        DBObject beforeModifiedObj = collection.findAndModify(personToDBObject(people.get(1)),
+                personToDBObject(new Person("test", 1, false, 0d)));
+        System.out.println("Before update:" + beforeModifiedObj);
+
+        // Delete
+        DBObject removedObj = collection.findAndRemove(personToDBObject(people.get(0)));
+        System.out.println("To be removed: " + removedObj);
+
+        mongoClient.close();
     }
 
     private static DBObject personToDBObject(Person person) {
