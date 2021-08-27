@@ -1,6 +1,11 @@
 package com.example.springcloudstreamskafka.service;
 
 import com.example.springcloudstreamskafka.entity.PageEvent;
+import org.apache.kafka.common.serialization.Serdes;
+import org.apache.kafka.streams.KeyValue;
+import org.apache.kafka.streams.kstream.Grouped;
+import org.apache.kafka.streams.kstream.KStream;
+import org.apache.kafka.streams.kstream.KTable;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
@@ -27,12 +32,21 @@ public class PageEventService {
                 new Random().nextInt(8000));
     }
 
-    @Bean
+    @Bean // consume & produce
     public Function<PageEvent, PageEvent> pageEventFunction() {
         return pageEvent -> {
             pageEvent.setName("Name: " + pageEvent.getName());
             pageEvent.setUser("User: " + pageEvent.getUser());
             return pageEvent;
         };
+    }
+
+    @Bean
+    public Function<KStream<String, PageEvent>, KStream<String, Long>> kStreamFunction() {
+        return input -> input.filter((k, v) -> v.getDuration() > 10)
+                    .map((k, v) -> new KeyValue<>(v.getName(), 0L))
+                    .groupBy((k, v) -> k, Grouped.with(Serdes.String(), Serdes.Long()))
+                    .count()
+                    .toStream();
     }
 }
