@@ -1,0 +1,11 @@
+DROP DATABASE IF EXISTS springfx_db;
+
+CREATE DATABASE springfx_db;
+
+USE springfx_db;
+
+CREATE TABLE employee (
+	id INT(11) PRIMARY_KEY AUTO_INCREMENT,
+	name VARCHAR(200),
+	salary DOUBLE,
+);

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <bean id="triangle" class="useinterfaces.Triangle">
+        <property name="pointA" ref="pointA" />
+        <property name="pointB" ref="pointB" />
+        <property name="pointC" ref="p3" />
+    </bean>
+
+    <bean id="pointA" class="useinterfaces.Point">
+        <property name="x" value="0" />
+        <property name="y" value="-20" />
+    </bean>
+
+    <bean id="pointB" class="useinterfaces.Point">
+        <property name="x" value="5" />
+        <property name="y" value="6" />
+    </bean>
+    <bean id="p3" class="useinterfaces.Point">
+        <property name="x" value="10" />
+        <property name="y" value="22" />
+    </bean>
+
+    <bean id="circle" class="useinterfaces.Circle">
+        <property name="center" ref="pointA" />
+    </bean>
+</beans>

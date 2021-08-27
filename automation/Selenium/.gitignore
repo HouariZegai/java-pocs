@@ -1,8 +1,0 @@
-# Maven
-target/
-
-# Idea
-.idea/
-out/
-*.iml
-drivers/
