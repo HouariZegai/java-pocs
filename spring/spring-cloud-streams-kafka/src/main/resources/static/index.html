@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analytics</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothie/1.34.0/smoothie.min.js"></script>
+</head>
+<body>
+
+<canvas id="chart2" width="600" height="400"></canvas>
+<script>
+    var index=-1;
+    randomColor = function() {
+        ++index;
+        if (index >= colors.length) index = 0; return colors[index];
+    }
+    var pages=["P1","P2"];
+    var colors=[
+        { sroke : 'rgba(0, 255, 0, 1)', fill : 'rgba(0, 255, 0, 0.2)' },
+        { sroke : 'rgba(255, 0, 0, 1)', fill : 'rgba(255, 0, 0, 0.2)'}
+    ];
+    var courbe = [];
+    var smoothieChart = new SmoothieChart({tooltip: true});
+    smoothieChart.streamTo(document.getElementById("chart2"), 500);
+    pages.forEach(function(v){
+        courbe[v]=new TimeSeries();
+        col = randomColor();
+        smoothieChart.addTimeSeries(courbe[v], {strokeStyle : col.sroke, fillStyle : col.fill, lineWidth : 2
+        });
+    });
+    var stockEventSource= new EventSource("/analytics");
+    stockEventSource.addEventListener("message", function (event) {
+        pages.forEach(function(v){
+            val=JSON.parse(event.data)[v];
+            courbe[v].append(new Date().getTime(),val);
+        });
+    });
+
+</script>
+</body>
+</html>
+</body>
+</html>
