@@ -19,7 +19,7 @@ public class PageEventController {
     private final StreamBridge streamBridge;
 
     /**
-     * Send kafka message (producer)
+     * Send kafka message (event producer)
      * @param topic topic you wanna send to
      * @param name the name to send
      * @return the response entity contains the page event object sent
