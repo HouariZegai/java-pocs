@@ -1,0 +1,49 @@
+{
+	"info": {
+		"_postman_id": "fe92c536-df7c-4a11-86cc-7b2e9ce1b3d4",
+		"name": "Spring cloud fakfa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "producer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/publish/R2/abdelkader",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"publish",
+						"R2",
+						"abdelkader"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "analytics",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/analytics",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"analytics"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,23 @@
+{
+	"info": {
+		"_postman_id": "c01b8791-0e3d-4110-ab7f-c3d952fb563b",
+		"name": "spring-rabbit",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Publish message",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http",
+					"host": [
+						"http"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,104 @@
+{
+	"info": {
+		"_postman_id": "e7ed93bc-0b1a-408a-8458-a47da9d704d4",
+		"name": "spring-mongo-crud",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "find all students",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find student by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/students/610337582009064e930a5d4a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"students",
+						"610337582009064e930a5d4a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find student by id Copy",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/students/6103e24455c44943daeb2a16",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"students",
+						"6103e24455c44943daeb2a16"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add student",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"Mohamed\",\n    \"lastName\": \"Zegai\",\n    \"email\": \"moh@houarizegai.com\",\n    \"gender\": \"MALE\",\n    \"address\": {\n        \"country\": \"Germany\",\n        \"city\": \"Berlin\",\n        \"postCode\": \"00000\"\n    },\n    \"favouriteSubjects\": [\n        \"Books\"\n    ],\n    \"totalSpentInBooks\": 15,\n    \"created\": \"2021-07-30T11:10:00.555\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"students"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
