@@ -14,12 +14,13 @@ interface Run {
     }
 }
 
-abstract class Animal implements Walk, Run {
+/*
+abstract class Animal implements Walk, Run { // DOES NOT COMPILE
 }
 
-class Cat implements Walk, Run {
+class Cat implements Walk, Run { // DOES NOT COMPILE
 
     public static void main(String[] args) {
         System.out.println(new Cat().getSpeed());
     }
-}
+}*/
