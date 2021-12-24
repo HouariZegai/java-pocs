@@ -14,6 +14,9 @@ interface Run {
     }
 }
 
+abstract class Animal implements Walk, Run {
+}
+
 class Cat implements Walk, Run {
 
     public static void main(String[] args) {
