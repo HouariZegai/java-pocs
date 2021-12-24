@@ -1,6 +1,5 @@
-package com.houarizegai.oca.ch5.interfaces;
+package com.houarizegai.oca.ch5.hidingvariables;
 
-// Hiding variables
 public class Rodent {
 
     protected int tailLength = 4;
