@@ -1,5 +1,6 @@
 package com.houarizegai.oca.ch5.interfaces;
 
+// Hiding methods
 class Marsupial {
 
     public static boolean isBiped() {
