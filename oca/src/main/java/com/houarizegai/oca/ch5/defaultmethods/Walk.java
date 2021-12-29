@@ -14,13 +14,17 @@ interface Run {
     }
 }
 
-/*
-abstract class Animal implements Walk, Run { // DOES NOT COMPILE
-}
+/*abstract class Animal implements Walk, Run { // DOES NOT COMPILE
+}*/
 
 class Cat implements Walk, Run { // DOES NOT COMPILE
+
+    @Override
+    public int getSpeed() {
+        return Walk.super.getSpeed();
+    }
 
     public static void main(String[] args) {
         System.out.println(new Cat().getSpeed());
     }
-}*/
+}
