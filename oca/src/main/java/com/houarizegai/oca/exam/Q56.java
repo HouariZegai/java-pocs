@@ -6,7 +6,7 @@ public class Q56 {
         String tiger = "Tiger";
         String lion = "Lion";
         // line below does not compile
-        //final String statement = 250 > 338 ? lion : tiger = " is Bigger";
-        System.out.println(statement);
+//        final String statement = 250 > 338 ? lion : tiger = " is Bigger";
+//        System.out.println(statement);
     }
 }
