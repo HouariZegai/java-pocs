@@ -19,7 +19,7 @@ public class CastingDemo {
     }
 
     public static void main(String[] args) {
-        new CastingDemo('a');
+        new CastingDemo('a'); // Can be promoted to int or double
         new CastingDemo(10);
         new CastingDemo(10.5);
     }
