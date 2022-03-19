@@ -1,0 +1,4 @@
+transaction_id,account_number,transaction_date,transaction_type,transaction_amount
+123000,19992222,15/09/2022-07:30,D,10000.50
+123100,19992222,14/11/2022-15:24,C,400.10
+123150,19992222,17/11/2022-10:10,D,13200.75
