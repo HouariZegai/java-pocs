@@ -10,20 +10,14 @@ import org.springframework.batch.core.configuration.annotation.StepBuilderFactor
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.ItemWriter;
-import org.springframework.batch.item.file.FlatFileItemReader;
-import org.springframework.batch.item.file.LineMapper;
-import org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper;
-import org.springframework.batch.item.file.mapping.DefaultLineMapper;
-import org.springframework.batch.item.file.transform.DelimitedLineTokenizer;
+import org.springframework.batch.item.support.CompositeItemProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.convert.Delimiter;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.core.io.Resource;
 
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 @Configuration
 @EnableBatchProcessing
@@ -33,18 +27,34 @@ public class SpringBatchConfig {
     private final JobBuilderFactory jobBuilderFactory;
     private final StepBuilderFactory stepBuilderFactory;
     private final ItemReader<BankTransaction> bankTransactionItemReader;
-    private final ItemProcessor<BankTransaction, BankTransaction> bankTransactionItemProcessor;
     private final ItemWriter<BankTransaction> bankTransactionItemWriter;
+
+    @Qualifier("bankItemProcessor")
+    private final ItemProcessor<BankTransaction, BankTransaction> bankTransactionItemProcessor;
+    @Qualifier("bankItemAnalyticsProcessor")
+    private final ItemProcessor<BankTransaction, BankTransaction> bankTransactionItemAnalyticsProcessor;
 
     @Bean
     public Job bankJob() {
         Step step = stepBuilderFactory.get("load-data-step")
                 .<BankTransaction, BankTransaction>chunk(100)
                 .reader(bankTransactionItemReader)
-                .processor(bankTransactionItemProcessor)
+                .processor(compositeItemProcessor())
                 .writer(bankTransactionItemWriter)
                 .build();
 
         return jobBuilderFactory.get("bank-data-loader-job").start(step).build();
+    }
+
+
+    public ItemProcessor<? super BankTransaction, ? extends BankTransaction> compositeItemProcessor() {
+        List<ItemProcessor<BankTransaction, BankTransaction>> processorList = new ArrayList<>();
+        processorList.add(bankTransactionItemProcessor);
+        processorList.add(bankTransactionItemAnalyticsProcessor);
+
+        CompositeItemProcessor<BankTransaction, BankTransaction> compositeItemProcessor = new CompositeItemProcessor<>();
+        compositeItemProcessor.setDelegates(processorList);
+
+        return compositeItemProcessor;
     }
 }

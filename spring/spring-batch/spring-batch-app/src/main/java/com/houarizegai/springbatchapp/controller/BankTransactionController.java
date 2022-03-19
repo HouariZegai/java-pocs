@@ -1,5 +1,6 @@
 package com.houarizegai.springbatchapp.controller;
 
+import com.houarizegai.springbatchapp.service.BankTransactionItemAnalyticsProcessor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.batch.core.*;
 import org.springframework.batch.core.launch.JobLauncher;
@@ -15,6 +16,7 @@ public class BankTransactionController {
 
     private final JobLauncher jobLauncher;
     private final Job job;
+    private final BankTransactionItemAnalyticsProcessor analyticsProcessor;
 
     @GetMapping("/startJob")
     public BatchStatus load() throws Exception {
@@ -28,5 +30,14 @@ public class BankTransactionController {
         }
 
         return jobExecution.getStatus();
+    }
+
+    @GetMapping("/analytics")
+    public Map<String, Double> getAnalytics() {
+        Map<String, Double> analytics = new HashMap<>();
+        analytics.put("credit", analyticsProcessor.getTotalCredit());
+        analytics.put("debit", analyticsProcessor.getTotalDebit());
+
+        return analytics;
     }
 }
