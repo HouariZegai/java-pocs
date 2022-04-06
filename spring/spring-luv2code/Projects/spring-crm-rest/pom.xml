@@ -7,7 +7,7 @@
     <packaging>war</packaging>
 
     <properties>
-        <org.springframework.version>5.3.14</org.springframework.version> <!-- Shared version number properties -->
+        <org.springframework.version>5.3.18</org.springframework.version> <!-- Shared version number properties -->
         <hibernate.version>5.4.2.Final</hibernate.version>
         <mysql.connector.vresion>8.0.16</mysql.connector.vresion>
         <c3p0.version>0.9.1.2</c3p0.version>
