@@ -26,31 +26,31 @@ Codes and samples were written :computer: in my learning 📖 process.
   * [Excel Read/Write](springboot\ApachePOI\excel-demo)
 
 ### Luv2code [[Paid](https://udemy.com/spring-hibernate-tutorial)]
-* [Spring Framework (basic)](spring/luv2code/SpringBasic)
-* [Spring MVC](spring/luv2code/SpringMVC)
-* [Hibernate](spring/luv2code/Hibernate)
-* [AOP](spring/luv2code/AOP)
-* [Maven](spring/luv2code/Maven)
-* [Spring Security](spring/luv2code/SpringSecurity)
-* [Spring REST](spring/luv2code/SpringREST)
-* [Spring Boot](spring/luv2code/SpringBoot)
-* [Thymleaf](spring/luv2code/SpringBoot/30-thymeleafdemo-helloworld)
+* [Spring Framework (basic)](spring/spring-luv2code/SpringBasic)
+* [Spring MVC](spring/spring-luv2code/SpringMVC)
+* [Hibernate](spring/spring-luv2code/Hibernate)
+* [AOP](spring/spring-luv2code/SpringAOP)
+* [Maven](spring/spring-luv2code/Maven)
+* [Spring Security](spring/spring-luv2code/SpringSecurity)
+* [Spring REST](spring/spring-luv2code/SpringREST)
+* [Spring Boot](spring/spring-luv2code/SpringBoot)
+* [Thymleaf](spring/spring-luv2code/SpringBoot/30-thymeleafdemo-helloworld)
 * Projects
-  * [Web Customer Tracker Project](spring/luv2code/Projects/web-customer-tracker) \[Customer Relationalship Manager, web application (CRUD)\].  
+  * [Web Customer Tracker Project](spring/spring-luv2code/Projects/web-customer-tracker) \[Customer Relationalship Manager, web application (CRUD)\].  
   Using: Spring MVC, Hibernate & Maven
-  * [Spring CRM REST Project](spring/luv2code/Projects/spring-crm-rest) \[REST API for Customer (CRUD)\].  
+  * [Spring CRM REST Project](spring/spring-luv2code/Projects/spring-crm-rest) \[REST API for Customer (CRUD)\].  
    Using: Spring MVC, Spring REST, Hibernate & Maven
-  * [Spring Boot CRUD - Hibernate](spring/luv2code/Projects/21-spring-boot-crud-hibernate) \[Web API (REST CRUD End-points)\].  
+  * [Spring Boot CRUD - Hibernate](spring/spring-luv2code/Projects/21-spring-boot-crud-hibernate) \[Web API (REST CRUD End-points)\].  
   Using: Spring Boot, Spring REST, Hibernate & Maven
-  * [Spring Boot CRUD - JPA](spring/luv2code/Projects/22-spring-boot-crud-jpa) \[Web API (REST CRUD End-points)\].  
+  * [Spring Boot CRUD - JPA](spring/spring-luv2code/Projects/22-spring-boot-crud-jpa) \[Web API (REST CRUD End-points)\].  
   Using: Spring Boot, JPA, Spring REST, Hibernate & Maven
-  * [Spring Boot CRUD - Spring Data JPA](spring/luv2code/Projects/23-spring-boot-crud-spring-data-jpa) \[Web API (CRUD End-points)\].  
+  * [Spring Boot CRUD - Spring Data JPA](spring/spring-luv2code/Projects/23-spring-boot-crud-spring-data-jpa) \[Web API (CRUD End-points)\].  
   Using: Spring Boot, Spring Data JPA, Spring REST, Hibernate & Maven
-  * [Spring Boot CRUD - Spring Data JPA & REST](spring/luv2code/Projects/24-spring-boot-crud-spring-data-rest) \[Web API (CRUD End-points)\].  
+  * [Spring Boot CRUD - Spring Data JPA & REST](spring/spring-luv2code/Projects/24-spring-boot-crud-spring-data-rest) \[Web API (CRUD End-points)\].  
   Using: Spring Boot, Spring Data JPA, Spring Data REST, Hibernate & Maven
 
 ### Javabrains
-* [Spring Framework](spring/javabrains/SpringFrameworkDemo) [[Free](https://www.youtube.com/playlist?list=PL85699F22F63DCD20)]
+* [Spring Framework](spring/spring-framework-javabrains) [[Free](https://www.youtube.com/playlist?list=PL85699F22F63DCD20)]
 
 ### APIs
 * [QRCode](apis/QRCode): generate/read QRCode using Zxing library.
@@ -66,5 +66,5 @@ Codes and samples were written :computer: in my learning 📖 process.
 * [Numbers to words](tools/src/numbertowords): convert numbers to words (language supported: AR/EN/FR).
 * [Random](tools/src/random): generate unique random numbers.
 
-## Other
+## Others
 * [OpenCV](opencv)
