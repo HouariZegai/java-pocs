@@ -1,5 +1,5 @@
-# Java Learning :heart: :fire: 
- The code was written :computer: in my learning 📖 process.
+# Java POCs :heart: :fire: 
+Codes and samples were written :computer: in my learning 📖 process.
 
 ![build](https://img.shields.io/jenkins/build/https/builds.apache.org/job/maven-box/job/maven/job/master.svg?style=flat-square)
 [![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
