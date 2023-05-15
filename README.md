@@ -5,7 +5,7 @@ Codes and samples were written :computer: to demonstrate the usage of Java with 
 
 In this repository you will find sample mainly on the following topics:
 - Java SE
-- Java8, Stream API, Lambda Expression, Regular Expression
+- Java, Stream API, Lambda Expression, Regular Expression
 - Spring Framework, Spring MVC, Hibernate, AOP, Thymleaf, Spring Security, Spring REST
 - Spring Boot
 - JUnit 5
@@ -24,4 +24,5 @@ In this repository you will find sample mainly on the following topics:
 - Folders: create folders (mkdirs), ...
 - Numbers to words: convert numbers to words (language supported: AR/EN/FR).
 - Random: generate unique random numbers.
+- OCA: Java certification exam questions samples
 - And more!
