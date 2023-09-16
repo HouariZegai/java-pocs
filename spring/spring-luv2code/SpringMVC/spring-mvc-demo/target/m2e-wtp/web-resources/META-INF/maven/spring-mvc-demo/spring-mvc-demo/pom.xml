@@ -8,8 +8,7 @@
     <packaging>war</packaging>
 
     <properties>
-        <org.springframework.version>5.1.7.RELEASE
-        </org.springframework.version> <!-- Shared version number properties -->
+        <org.springframework.version>5.2.24.RELEASE</org.springframework.version> <!-- Shared version number properties -->
     </properties>
 
     <build>
