@@ -27,37 +27,30 @@ public class App {
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
             DSLContext dsl = DSL.using(conn, SQLDialect.POSTGRES);
 
-            int resultCreateAuthor = app.createAuthor(dsl);
-            System.out.println("Auth - Inserted " + resultCreateAuthor + " record(s)");
-
-            int resultCreateBook = app.createBook(dsl);
-            System.out.println("Book - Inserted " + resultCreateBook + " record(s)");
-
-            // Fetch all books
-            Result<Record> result = dsl.select().from(BOOK).fetch();
-            for (Record record : result) {
-                Integer id = record.getValue(BOOK.ID);
-                String title = record.getValue(BOOK.TITLE);
-                Integer publishedIn = record.getValue(BOOK.PUBLISHED_IN);
-                Integer languageId = record.getValue(BOOK.LANGUAGE_ID);
-
-                System.out.println("ID: " + id + " Title: " + title + " Published in: " + publishedIn + " Language ID: " + languageId);
-            }
-
-            // Delete a book
-            int resultDeleteBook = dsl.delete(BOOK).where(BOOK.ID.eq(1)).execute();
-            System.out.println("Book - Deleted " + resultDeleteBook + " record(s)");
+            createAuthor(dsl);
+            createBook(dsl);
+            fetchAll(dsl);
+            deleteBookById(dsl);
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void demo() {
+    private static void createAuthor(DSLContext dsl) {
+        var author = new Author();
+        author.setId(1);
+        author.setName("George");
 
+        var res = dsl.insertInto(AUTHOR)
+                .columns(AUTHOR.ID, AUTHOR.NAME)
+                .values(author.getId(), author.getName())
+                .execute();
+
+        System.out.println("Auth - Inserted " + res + " record(s)");
     }
 
-    private int createBook(DSLContext dsl) {
+    private static void createBook(DSLContext dsl) {
         var book = new Book();
         book.setId(1);
         book.setAuthorId(1);
@@ -65,20 +58,28 @@ public class App {
         book.setPublishedIn(1948);
         book.setLanguageId(1);
 
-        return dsl.insertInto(BOOK)
+        var res = dsl.insertInto(BOOK)
                 .columns(BOOK.ID, BOOK.AUTHOR_ID, BOOK.TITLE, BOOK.PUBLISHED_IN, BOOK.LANGUAGE_ID)
                 .values(book.getId(), book.getAuthorId(), book.getTitle(), book.getPublishedIn(), book.getLanguageId())
                 .execute();
+
+        System.out.println("Book - Inserted " + res + " record(s)");
     }
 
-    private int createAuthor(DSLContext dsl) {
-        var author = new Author();
-        author.setId(1);
-        author.setName("George");
+    private static void fetchAll(DSLContext dsl) {
+        Result<Record> result = dsl.select().from(BOOK).fetch();
+        for (Record record : result) {
+            Integer id = record.getValue(BOOK.ID);
+            String title = record.getValue(BOOK.TITLE);
+            Integer publishedIn = record.getValue(BOOK.PUBLISHED_IN);
+            Integer languageId = record.getValue(BOOK.LANGUAGE_ID);
 
-        return dsl.insertInto(AUTHOR)
-                .columns(AUTHOR.ID, AUTHOR.NAME)
-                .values(author.getId(), author.getName())
-                .execute();
+            System.out.println("ID: " + id + " Title: " + title + " Published in: " + publishedIn + " Language ID: " + languageId);
+        }
+    }
+
+    private static void deleteBookById(DSLContext dsl) {
+        int resultDeleteBook = dsl.delete(BOOK).where(BOOK.ID.eq(1)).execute();
+        System.out.println("Book - Deleted " + resultDeleteBook + " record(s)");
     }
 }
