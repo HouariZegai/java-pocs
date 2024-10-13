@@ -1,0 +1,12 @@
+services:
+  postgres:
+    image: postgres:11-alpine
+    container_name: mydb
+    ports:
+      - "5432:5432"
+    command: [ "postgres", "-c", "log_statement=all" ]
+    environment:
+      - POSTGRES_SERVER=postgres
+      - POSTGRES_DB=mydb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
